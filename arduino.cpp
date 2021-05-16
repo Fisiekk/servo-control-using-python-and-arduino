@@ -48,22 +48,22 @@ void setup() {
   
   Serial.setTimeout(10);
   
-  Serial.print("waiting");
+  //Serial.print("waiting");
 }
 
 void loop() {
 
   if(Serial.available() > 0)
   {
-    Serial.println("GOT DATA");
+    //Serial.println("GOT DATA");
     String SerialRec = Serial.readString();
-    Serial.println(SerialRec);
+    //Serial.println(SerialRec);
     String Xval = getValue(SerialRec, ':', 0);
     String Yval = getValue(SerialRec, ':', 1);
     int Xvalue = Xval.toInt();
     int Yvalue = Yval.toInt();
     delay(1);
-    Serial.println("X: " + Xval + " Y: " + Yval);
+    //Serial.println("X: " + Xval + " Y: " + Yval);
     ServoWrite(Xvalue, Yvalue);
     delay(1);
   }
