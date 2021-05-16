@@ -9,7 +9,7 @@ int servoPinY = 27;
 int Xval = 0;
 int Yval = 0;
 
-String getValue(String data, char separator, int index)
+String getValue(String data, char separator, int index) //idk what some of function is even doing i copied it from stack overflow and its working xD
 {
     int found = 0;
     int strIndex[] = { 0, -1 };
@@ -35,9 +35,9 @@ void setup() {
   Serial.begin(115200);
 
   ESP32PWM::allocateTimer(0);
-	ESP32PWM::allocateTimer(1);
-	ESP32PWM::allocateTimer(2);
-	ESP32PWM::allocateTimer(3);
+  ESP32PWM::allocateTimer(1);
+  ESP32PWM::allocateTimer(2);
+  ESP32PWM::allocateTimer(3);
 
   servoX.setPeriodHertz(50);
   servoY.setPeriodHertz(50);
