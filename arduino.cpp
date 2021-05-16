@@ -9,7 +9,7 @@ int servoPinY = 27;
 int Xval = 0;
 int Yval = 0;
 
-String getValue(String data, char separator, int index) //idk what some of function is even doing i copied it from stack overflow and its working xD
+String getValue(String data, char separator, int index)
 {
     int found = 0;
     int strIndex[] = { 0, -1 };
@@ -41,29 +41,29 @@ void setup() {
 
   servoX.setPeriodHertz(50);
   servoY.setPeriodHertz(50);
-  servoY.attach(servoPinY, 500, 2250);
+  servoY.attach(servoPinY, 500, 2250); //im using redox s90mg servos for tower sg90 servos you should use something like 500, 2300-2400
   servoX.attach(servoPinX, 500, 2250);
   servoX.write(0);
   servoY.write(0);
   
   Serial.setTimeout(10);
   
-  //Serial.print("waiting");
+  //Serial.print("waiting"); //debug
 }
 
 void loop() {
 
   if(Serial.available() > 0)
   {
-    //Serial.println("GOT DATA");
+    //Serial.println("GOT DATA"); //debug
     String SerialRec = Serial.readString();
-    //Serial.println(SerialRec);
+    //Serial.println(SerialRec); //debug
     String Xval = getValue(SerialRec, ':', 0);
     String Yval = getValue(SerialRec, ':', 1);
     int Xvalue = Xval.toInt();
     int Yvalue = Yval.toInt();
     delay(1);
-    //Serial.println("X: " + Xval + " Y: " + Yval);
+    //Serial.println("X: " + Xval + " Y: " + Yval); //debug
     ServoWrite(Xvalue, Yvalue);
     delay(1);
   }
