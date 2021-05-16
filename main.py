@@ -14,7 +14,7 @@ running = True
 
 while running:
   pos = pygame.mouse.get_pos()
-  send = (str(_map(pos[0], 0, 1000, 0, 180)) + ":" + str(180 - _map(pos[1], 0, 650, 0, 180))).encode() #"making" string and encoding it for serial (string looks like that 180:90, 9:123, 42:15)
+  send = (str(_map(pos[0], 0, 1000, 0, 180)) + ":" + str(180 - _map(pos[1], 0, 650, 0, 180))).encode() #"making" string and encoding it for serial (string looks like this 180:90, 9:123, 42:15)
   ser.write(bytes(send)) #sendigng string to esp32/arduino
   #print(pos) #debug
   time.sleep(0.1) #wait only to not overload esp32/arduino
